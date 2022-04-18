@@ -83,6 +83,16 @@ namespace Flappy.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MARIO {
+            get {
+                object obj = ResourceManager.GetObject("MARIO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pipeBottom {
             get {
                 object obj = ResourceManager.GetObject("pipeBottom", resourceCulture);

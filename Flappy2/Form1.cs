@@ -38,6 +38,8 @@ namespace Flappy
             ground1.Left = this.Left;
             ground2.Left = ground1.Right - 1;
             ground2.Top = ground1.Top;
+            mario.Left = this.Right;
+            mario.Top = pipeBottom.Top;
             random = new Random();
             choosePipesToMove();
             gameTimer.Interval = 30;

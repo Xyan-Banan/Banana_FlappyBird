@@ -32,16 +32,18 @@ namespace Flappy
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.scoreText = new System.Windows.Forms.Label();
+            this.mario = new System.Windows.Forms.PictureBox();
             this.ground1 = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
-            this.pipeBottom = new System.Windows.Forms.PictureBox();
             this.pipeTop = new System.Windows.Forms.PictureBox();
             this.ground2 = new System.Windows.Forms.PictureBox();
+            this.pipeBottom = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.mario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -58,6 +60,16 @@ namespace Flappy
             this.scoreText.Size = new System.Drawing.Size(122, 37);
             this.scoreText.TabIndex = 6;
             this.scoreText.Text = "Score: 0";
+            // 
+            // mario
+            // 
+            this.mario.Image = global::Flappy.Properties.Resources.MARIO;
+            this.mario.Location = new System.Drawing.Point(155, 377);
+            this.mario.Name = "mario";
+            this.mario.Size = new System.Drawing.Size(75, 100);
+            this.mario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mario.TabIndex = 8;
+            this.mario.TabStop = false;
             // 
             // ground1
             // 
@@ -79,16 +91,6 @@ namespace Flappy
             this.flappyBird.TabIndex = 3;
             this.flappyBird.TabStop = false;
             // 
-            // pipeBottom
-            // 
-            this.pipeBottom.Image = global::Flappy.Properties.Resources.pipeBottom;
-            this.pipeBottom.Location = new System.Drawing.Point(279, 360);
-            this.pipeBottom.Name = "pipeBottom";
-            this.pipeBottom.Size = new System.Drawing.Size(109, 193);
-            this.pipeBottom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pipeBottom.TabIndex = 2;
-            this.pipeBottom.TabStop = false;
-            // 
             // pipeTop
             // 
             this.pipeTop.Image = global::Flappy.Properties.Resources.pipeTop;
@@ -109,12 +111,23 @@ namespace Flappy
             this.ground2.TabIndex = 7;
             this.ground2.TabStop = false;
             // 
+            // pipeBottom
+            // 
+            this.pipeBottom.Image = global::Flappy.Properties.Resources.pipeBottom;
+            this.pipeBottom.Location = new System.Drawing.Point(279, 360);
+            this.pipeBottom.Name = "pipeBottom";
+            this.pipeBottom.Size = new System.Drawing.Size(109, 193);
+            this.pipeBottom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pipeBottom.TabIndex = 2;
+            this.pipeBottom.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(539, 630);
+            this.Controls.Add(this.mario);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.ground1);
             this.Controls.Add(this.flappyBird);
@@ -122,13 +135,14 @@ namespace Flappy
             this.Controls.Add(this.ground2);
             this.Controls.Add(this.pipeBottom);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Flappy Bird";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gamekeyisup);
+            ((System.ComponentModel.ISupportInitialize)(this.mario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +157,7 @@ namespace Flappy
         private System.Windows.Forms.Label scoreText;
         private System.Windows.Forms.PictureBox ground1;
         private System.Windows.Forms.PictureBox ground2;
+        private System.Windows.Forms.PictureBox mario;
     }
 }
 
