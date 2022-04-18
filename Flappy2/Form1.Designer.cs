@@ -127,13 +127,13 @@ namespace Flappy
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
             this.ClientSize = new System.Drawing.Size(539, 630);
-            this.Controls.Add(this.mario);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.ground1);
             this.Controls.Add(this.flappyBird);
             this.Controls.Add(this.pipeTop);
             this.Controls.Add(this.ground2);
             this.Controls.Add(this.pipeBottom);
+            this.Controls.Add(this.mario);
             this.Name = "Form1";
             this.Text = "Flappy Bird";
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gamekeyisup);

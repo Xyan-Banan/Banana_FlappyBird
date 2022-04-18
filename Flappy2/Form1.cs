@@ -13,6 +13,7 @@ namespace Flappy
         int score; // default score integer set to 0
         float t;
         int g;
+        bool isAnimationFinished;
         Random random;
         // variable ends
 
@@ -57,13 +58,17 @@ namespace Flappy
 
         }
 
-        private void endGame()
+        private void endGame(bool isWin)
         {
             // this is the game end function, this function will when the bird touches the ground or the pipes
             gameTimer.Stop(); // stop the main timer
             scoreText.Text += " Game over!!!"; // show the game over text on the score text, += is used to add the new string of text next to the score instead of overriding it
 
-            DialogResult result = MessageBox.Show("Хотите попробовать еще?", "Конец игры", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(
+                isWin ? "Вы выиграли!" : "Конец игры",
+                "Конец игры",
+                MessageBoxButtons.YesNo);
+
             if (result == DialogResult.Yes)
                 initGame();
             else
@@ -83,7 +88,7 @@ namespace Flappy
                flappyBird.Top < 0)
             {
                 // if any of the conditions are met from above then we will run the end game function
-                endGame();
+                endGame(isWin: false);
             }
         }
 
@@ -135,16 +140,49 @@ namespace Flappy
             }
         }
 
+        void animateMario()
+        {
+            isAnimationFinished = false;
+            if (pipeBottom.Left < 0)
+            {
+                pipeBottom.Left = this.Right;
+                pipeSpeed = 8;
+            }
+            if (pipeBottom.Left > this.Width / 2)
+            {
+                pipeBottom.Left -= pipeSpeed;
+                mario.Left = pipeBottom.Left + 20;
+                moveGround();
+            }
+            else
+            {
+                if (mario.Bottom > pipeBottom.Top + 5)
+                    mario.Top -= pipeSpeed;
+                else
+                    isAnimationFinished = true;
+            }
+        }
+
         private void gameTimerEvent(object sender, EventArgs e)
         {
-            t += gameTimer.Interval / 1000f;
-            moveBird();
-            movePipes();
-            moveGround();
+            if (score < 3)
+            {
+                t += gameTimer.Interval / 1000f;
+                moveBird();
+                movePipes();
+                moveGround();
 
-            // if score is greater then 5 then we will increase the pipe speed to 15
-            if (score > 5)
-                pipeSpeed = 15;
+                // if score is greater then 5 then we will increase the pipe speed to 15
+                if (score > 5)
+                    pipeSpeed = 15;
+            }
+            else
+            {
+                animateMario();
+
+                if (isAnimationFinished)
+                    endGame(isWin: true);
+            }
         }
     }
 }
